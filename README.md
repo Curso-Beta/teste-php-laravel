@@ -1,63 +1,57 @@
-# Teste para candidatos à vaga de Desenvolvedor PHP Pleno
+# Orientações para rodar o projeto
 
-Olá caro desenvolvedor, nesse teste analisaremos seu conhecimento geral e inclusive velocidade de desenvolvimento. Abaixo explicaremos tudo o que será necessário.
+# Acesso ao projeto
 
-## Instruções
+- Crie um diretório para baixar o código
+- Abra um termianl/prompt e acesse o diretório criado para o projeto
+```
+cd /path/to/project 
+```
+- Execute o comando abaixo para baixar o código do projeto
+```
+git clone -b JoseLucasAquino git@github.com:Curso-Beta/teste-php-laravel.git
+```
 
-O desafio consiste em implementar uma aplicação web utilizando o framework PHP Laravel, um banco de dados relacional (Mysql), que terá como finalidade a inscrição de candidatos a uma oportunidade de emprego.
+- Caso já utilize containers, tenha certeza que a porta 8190 esteja livre
+ou altere o atributo ports no arquivo doccker-compose.yml
+```
+ports:
+    -8190:80
+```
 
-Sua aplicação deve possuir:
+- Para rodar o projeto, execute o comando
+```
+docker compose up -d
+```
 
-- CRUD de vagas:
-  - Criar, editar, excluir e listar vagas.
-  - A vaga pode ser CLT, Pessoa Jurídica ou Freelancer.
-- CRUD de candidatos:
-  - Criar, editar, excluir e listar candidatos.
-- Um cadidato pode se inscrever em uma ou mais vagas.
-- Deve ser ser possível "pausar" a vaga, evitando a inscrição de candidatos.
-- Cada CRUD:
-  - Deve ser filtrável e ordenável por qualquer campo, e possuir paginação de 20 itens.
-  - Deve possuir formulários para criação e atualização de seus itens.
-  - Deve permitir a deleção de qualquer item de sua lista.
-  - Implementar validações de campos obrigatórios e tipos de dados.
-- Testes unitários e de unidade.
+- Após terminar, acesse o container para gerar a chave de app, que o Laravel utiliza para encriptações (Essa chave é obrigatória)
+```
+docker-exec -it teste /bin/sh
+php artisan key:generate
+```
 
-## Banco de dados
+- Para conectar a aplicação ao seu banco de dados, acesse o arquivo .env, que também é gerado pelo comando anterior, e forneça os dados de acesso do banco de dados
+```
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=teste
+DB_USERNAME=teste
+DB_PASSWORD=password
+```
 
-- O banco de dados deve ser criado utilizando Migrations do framework Laravel, e também utilizar Seeds e Factorys para popular as informações no banco de dados.
+- Por fim, execute as mirgrations, que vão construir a estrutura inicial do banco de dados.
+```
+php artisan migrate
+```
 
-## Tecnologias a serem utilizadas
+# Acesso a api
+- Acesse a url, conforme a porta escolhida no arquivo docker-compose.yml, no caso default a prota 8188
+```
+http//localhost:8188/api/
+```
 
-Devem ser utilizadas as seguintes tecnologias:
+- Assim você já poderá acessar a documentação da api, para saber mais sobre a utilização do projeto.
+```
+http//localhost:8188/api/documentation
 
-- HTML
-- CSS
-- Javascript
-- Framework Laravel (PHP)
-- Docker (construção do ambiente de desenvolvimento)
-- Mysql
-
-## Entrega
-
-- Para iniciar o teste, faça um fork deste repositório; **Se você apenas clonar o repositório não vai conseguir fazer push.**
-- Crie uma branch com o seu nome completo;
-- Altere o arquivo readme.md com as informações necessárias para executar o seu teste (comandos, migrations, seeds, etc);
-- Depois de finalizado, envie-nos o pull request;
-
-## Bônus
-
-- API Rest JSON para todos os CRUDS listados acima.
-- Permitir deleção em massa de itens nos CRUDs.
-- Permitir que o usuário mude o número de itens por página.
-- Implementar autenticação de usuário na aplicação.
-
-## O que iremos analisar
-
-- Organização do código;
-- Aplicação de design patterns;
-- Aplicação de testes;
-- Separação de módulos e componentes;
-- Legibilidade;
-- Criação do ambiente com Docker.
-
-### Boa sorte!
