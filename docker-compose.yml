@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  server:
+    container_name: teste
+    restart: always
+    build: .
+    volumes:
+      - ./app:/app
+    ports:
+      - 8190:80
+  db:
+    container_name: db
+    restart: always
+    image: mysql:8.0
+    ports:
+      - 3311:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: teste
+      MYSQL_USER: teste
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./database:/var/lib/mysql
+

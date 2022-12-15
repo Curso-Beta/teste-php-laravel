@@ -1,0 +1,826 @@
+openapi: 3.0.0
+info:
+  title: 'OpenApi Documentation For Portal Vagas'
+  description: 'Documentation intended to guide the use of the API to access Portal Vagas data'
+  contact:
+    email: portal_vagas_admin@gmail.com
+  license:
+    name: 'Apache 2.0'
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8190'
+    description: 'Demo API Server'
+paths:
+  /api/applications:
+    get:
+      tags:
+        - Applications
+      summary: 'Get list of applications'
+      description: 'Returns list of applications'
+      operationId: getApplicationsList
+      parameters:
+        -
+          $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResourceCollection'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+    post:
+      tags:
+        - Applications
+      summary: 'Store new Application'
+      description: 'Returns Application data'
+      operationId: storeApplication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApplicationRequest'
+      responses:
+        '201':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+  '/api/applications/{id}':
+    get:
+      tags:
+        - Applications
+      summary: 'Get Application information'
+      description: 'Returns Application data'
+      operationId: getApplicationById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Application id'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+    put:
+      tags:
+        - Applications
+      summary: 'Update existing Application'
+      description: 'Returns updated Application data'
+      operationId: updateApplication
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Application id'
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateApplicationRequest'
+      responses:
+        '202':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Resource Not Found'
+    delete:
+      tags:
+        - Applications
+      summary: 'Delete existing Application'
+      description: 'Deletes a record and returns no content'
+      operationId: deleteApplication
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Application id'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema: {  }
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Resource Not Found'
+  /api/candidates:
+    get:
+      tags:
+        - Candidates
+      summary: 'Get list of candidates'
+      description: 'Returns list of candidates'
+      operationId: getCandidatesList
+      parameters:
+        -
+          $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CandidateResourceCollection'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+    post:
+      tags:
+        - Candidates
+      summary: 'Store new candidate'
+      description: 'Returns candidate data'
+      operationId: storeCandidate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCandidateRequest'
+      responses:
+        '201':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CandidateResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+  '/api/candidates/{id}':
+    get:
+      tags:
+        - Candidates
+      summary: 'Get candidate information'
+      description: 'Returns candidate data'
+      operationId: getCandidateById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Candidate id'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CandidateResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+    put:
+      tags:
+        - Candidates
+      summary: 'Update existing candidate'
+      description: 'Returns updated candidate data'
+      operationId: updateCandidate
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Candidate id'
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCandidateRequest'
+      responses:
+        '202':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CandidateResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Resource Not Found'
+    delete:
+      tags:
+        - Candidates
+      summary: 'Delete existing candidate'
+      description: 'Deletes a record and returns no content'
+      operationId: deleteCandidate
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Candidate id'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema: {  }
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Resource Not Found'
+  /api/companies:
+    get:
+      tags:
+        - Companies
+      summary: 'Get list of companies'
+      description: 'Returns list of companies'
+      operationId: getCompaniesList
+      parameters:
+        -
+          $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyResourceCollection'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+    post:
+      tags:
+        - Companies
+      summary: 'Store new company'
+      description: 'Returns company data'
+      operationId: storeCompany
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCompanyRequest'
+      responses:
+        '201':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+  '/api/companies/{id}':
+    get:
+      tags:
+        - Companies
+      summary: 'Get company information'
+      description: 'Returns company data'
+      operationId: getCompanyById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Company id'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+    put:
+      tags:
+        - Companies
+      summary: 'Update existing company'
+      description: 'Returns updated company data'
+      operationId: updateCompany
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Company id'
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCompanyRequest'
+      responses:
+        '202':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Resource Not Found'
+    delete:
+      tags:
+        - Companies
+      summary: 'Delete existing company'
+      description: 'Deletes a record and returns no content'
+      operationId: deleteCompany
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Company id'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema: {  }
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Resource Not Found'
+  /api/opportunities:
+    get:
+      tags:
+        - Opportunities
+      summary: 'Get list of opportunities'
+      description: 'Returns list of opportunities'
+      operationId: getOpportunitiesList
+      parameters:
+        -
+          $ref: '#/components/parameters/page'
+      responses:
+        '200':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpportunityResourceCollection'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+    post:
+      tags:
+        - Opportunities
+      summary: 'Store new opportunity'
+      description: 'Returns opportunity data'
+      operationId: storeOpportunity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOpportunityRequest'
+      responses:
+        '201':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpportunityResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+  '/api/opportunities/{id}':
+    get:
+      tags:
+        - Opportunities
+      summary: 'Get opportunity information'
+      description: 'Returns opportunity data'
+      operationId: getOpportunityById
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Opportunity id'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpportunityResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+    put:
+      tags:
+        - Opportunities
+      summary: 'Update existing opportunity'
+      description: 'Returns updated opportunity data'
+      operationId: updateOpportunity
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Opportunity id'
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOpportunityRequest'
+      responses:
+        '202':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpportunityResource'
+        '400':
+          description: 'Bad Request'
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Resource Not Found'
+    delete:
+      tags:
+        - Opportunities
+      summary: 'Delete existing opportunity'
+      description: 'Deletes a record and returns no content'
+      operationId: deleteOpportunity
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Opportunity id'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema: {  }
+        '401':
+          description: Unauthenticated
+        '403':
+          description: Forbidden
+        '404':
+          description: 'Resource Not Found'
+components:
+  schemas:
+    welcome_message:
+      properties:
+        message:
+          type: string
+          example: 'Back-end Challenge 2021 - Space Flight News'
+      type: object
+    CreateApplicationRequest:
+      properties:
+        candidate_id:
+          type: string
+          example: '1'
+        opportunity_id:
+          type: string
+          example: '1'
+      type: object
+    CreateCandidateRequest:
+      properties:
+        name:
+          type: string
+          example: name
+        email:
+          type: string
+          example: email@teste.com
+        phone:
+          type: string
+          example: phone
+        level:
+          type: string
+          example: level
+        area:
+          type: string
+          example: area
+        expected_salary:
+          type: string
+          example: '3200'
+      type: object
+    CreateCompanyRequest:
+      properties:
+        name:
+          type: string
+          example: 'Sample Name'
+      type: object
+    CreateOpportunityRequest:
+      properties:
+        contract_type:
+          type: string
+          example: CLT
+        accepts_applications:
+          type: boolean
+          example: 'false'
+        offered_salary:
+          type: integer
+          example: '18237'
+      type: object
+    PaginateApplicationRequest:
+      properties:
+        candidate:
+          type: string
+          example: '1'
+        opportunity:
+          type: string
+          example: '1'
+        limit:
+          type: limit
+          example: '10'
+        orderBy:
+          type: string
+          example: candidate
+        sortedBy:
+          type: integer
+          example: asc
+      type: object
+    PaginateCandidateRequest:
+      properties:
+        name:
+          type: string
+          example: name
+        mail:
+          type: string
+          example: email
+        phone:
+          type: string
+          example: phone
+        level:
+          type: string
+          example: level
+        area:
+          type: string
+          example: area
+        expected_salary:
+          type: string
+          example: expected_salary
+        limit:
+          type: limit
+          example: '10'
+        orderBy:
+          type: string
+          example: candidate
+        sortedBy:
+          type: integer
+          example: asc
+      type: object
+    PaginateCompanyRequest:
+      properties:
+        name:
+          type: limit
+          example: name
+        limit:
+          type: limit
+          example: '10'
+        orderBy:
+          type: string
+          example: candidate
+        sortedBy:
+          type: integer
+          example: asc
+      type: object
+    PaginateOpportunityRequest:
+      properties:
+        contract_type:
+          type: string
+          example: CLT
+        accepts_applications:
+          type: boolean
+          example: 'false'
+        offered_salary:
+          type: integer
+          example: '18237'
+        limit:
+          type: limit
+          example: '10'
+        orderBy:
+          type: string
+          example: candidate
+        sortedBy:
+          type: integer
+          example: asc
+      type: object
+    UpdateApplicationRequest:
+      properties:
+        candidate_id:
+          type: string
+          example: '1'
+        opportunity_id:
+          type: string
+          example: '1'
+      type: object
+    UpdateCandidateRequest:
+      properties:
+        name:
+          type: string
+          example: name
+        email:
+          type: string
+          example: email@teste.com
+        phone:
+          type: string
+          example: phone
+        level:
+          type: string
+          example: level
+        area:
+          type: string
+          example: area
+        expected_salary:
+          type: string
+          example: expected_salary
+      type: object
+    UpdateCompanyRequest:
+      properties:
+        name:
+          type: string
+          example: 'Sample Name'
+      type: object
+    UpdateOpportunityRequest:
+      properties:
+        contract_type:
+          type: string
+          example: CLT
+        accepts_applications:
+          type: boolean
+          example: 'false'
+        offered_salary:
+          type: integer
+          example: '18237'
+      type: object
+    ApplicationResource:
+      properties:
+        id:
+          type: integer
+          example: '1'
+        candidate:
+          type: string
+          example: 'Sample Name'
+        opportunity:
+          type: string
+          example: 'Sample Description'
+      type: object
+    ApplicationResourceCollection:
+      type: array
+      items:
+        $ref: '#components/schemas/ApplicationResource'
+    CandidateResource:
+      properties:
+        id:
+          type: integer
+          example: '1'
+        name:
+          type: string
+          example: name
+        email:
+          type: string
+          example: email@teste.com
+        phone:
+          type: string
+          example: phone
+        level:
+          type: string
+          example: level
+        area:
+          type: string
+          example: area
+        expected_salary:
+          type: integer
+          example: '10299'
+      type: object
+    CandidateResourceCollection:
+      type: array
+      items:
+        $ref: '#components/schemas/ApplicationResource'
+    CompanyResource:
+      properties:
+        id:
+          type: integer
+          example: '1'
+        name:
+          type: string
+          example: 'Sample Name'
+      type: object
+    CompanyResourceCollection:
+      type: array
+      items:
+        $ref: '#components/schemas/ApplicationResource'
+    OpportunityResource:
+      properties:
+        id:
+          type: integer
+          example: '1'
+        name:
+          type: string
+          example: 'Sample Name'
+      type: object
+    OpportunityResourceCollection:
+      type: array
+      items:
+        $ref: '#components/schemas/ApplicationResource'
+  parameters:
+    page:
+      name: page
+      in: query
+      description: 'A pagina alvo'
+      required: true
+      schema:
+        type: integer
+        example: '1'
+tags:
+  -
+    name: 'Portal Vagas'
+    description: 'API Endpoints of Portal Vagas'
