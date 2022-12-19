@@ -25,6 +25,8 @@
 
 - http://localhost:8000/vacancies
 
+- http://localhost:8000/applications
+
 ## Tests
 
 - ./vendor/bin/phpunit
