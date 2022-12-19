@@ -70,17 +70,42 @@
 
             </div>
 
+            <p></p>
             <div class="col-xs-12 col-sm-12 col-md-12">
 
                 <div class="form-group">
 
                     <strong>Vacancy Type:</strong>
 
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Vacancy Type">{{ $vacancy->type_vacancy }}</textarea>
+                    <select name="type_vacancy">
+                    @if ($vacancy->type_vacancy == 1) {
+                        <option value="1"> CLT </option>
+                        <option value="2"> Pessoa Jurídica </option>
+                        <option value="3"> Freelancer </option>
+                    }
+                    @endif
+
+                    @if ($vacancy->type_vacancy == 2) {
+                        <option value="2"> Pessoa Jurídica </option>
+                        <option value="1"> CLT </option>
+                        <option value="3"> Freelancer </option>
+                    }
+                    @endif
+
+                    @if ($vacancy->type_vacancy == 3) {
+                        <option value="3"> Freelancer </option>
+                        <option value="2"> Pessoa Jurídica </option>
+                        <option value="1"> CLT </option>
+                    }
+                    @endif
+
+                    </select>
 
                 </div>
 
             </div>
+
+            <p></p>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
 
@@ -88,8 +113,20 @@
 
                     <strong>Status:</strong>
 
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Status">{{ $vacancy->status }}</textarea>
-
+                    
+                    <select name="status">
+                    @if ($vacancy->status == 1) {
+                    <option value="1"> Ativo </option>
+                    <option value="2"> Inativo </option>
+                    } 
+                    @endif
+                    @if ($vacancy->status == 2) {
+                    <option value="2"> Inativo </option>
+                    <option value="1"> Ativo </option>
+                    } 
+                    @endif
+                    
+                    </select>
                 </div>
 
             </div>
