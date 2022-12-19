@@ -1,6 +1,6 @@
 @extends('applications.layout')
 
-   
+  
 
 @section('content')
 
@@ -10,7 +10,7 @@
 
             <div class="pull-left">
 
-                <h2>Edit Application</h2>
+                <h2> Show Application</h2>
 
             </div>
 
@@ -26,72 +26,32 @@
 
    
 
-    @if ($errors->any())
+    <div class="row">
 
-        <div class="alert alert-danger">
+        <div class="col-xs-12 col-sm-12 col-md-12">
 
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <div class="form-group">
 
-            <ul>
+                <strong>Name:</strong>
 
-                @foreach ($errors->all() as $error)
-
-                    <li>{{ $error }}</li>
-
-                @endforeach
-
-            </ul>
-
-        </div>
-
-    @endif
-
-  
-
-    <form action="{{ route('applications.update',$application->id) }}" method="POST">
-
-        @csrf
-
-        @method('PUT')
-
-   
-
-         <div class="row">
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-
-                <div class="form-group">
-
-                    <strong>Name:</strong>
-
-                    <input type="text" name="name" value="{{ $application->name }}" class="form-control" placeholder="Name">
-
-                </div>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-
-                <div class="form-group">
-
-                    <strong>Detail:</strong>
-
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $application->detail }}</textarea>
-
-                </div>
-
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-
-              <button type="submit" class="btn btn-primary">Submit</button>
+                {{ $application->name }}
 
             </div>
 
         </div>
 
-   
+        <div class="col-xs-12 col-sm-12 col-md-12">
 
-    </form>
+            <div class="form-group">
+
+                <strong>Details:</strong>
+
+                {{ $application->detail }}
+
+            </div>
+
+        </div>
+
+    </div>
 
 @endsection
