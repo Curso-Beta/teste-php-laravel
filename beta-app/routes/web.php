@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\CandidateController;
 
 /*
@@ -15,3 +16,5 @@ use App\Http\Controllers\CandidateController;
 */
 
 Route::resource('candidates', CandidateController::class);
+
+Route::resource('vacancies', VacancyController::class);
