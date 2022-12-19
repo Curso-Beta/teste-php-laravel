@@ -97,7 +97,7 @@ class CandidateController extends Controller
      */
     public function destroy(Candidate $candidate)
     {
-        $cadidate->delete();
+        $candidate->delete();
 
         return redirect()->route('candidates.index')
             ->with('success', 'Candidate deleted successfully');
