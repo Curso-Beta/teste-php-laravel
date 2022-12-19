@@ -46,7 +46,20 @@
 
                 <strong>Vacancy Type:</strong>
 
-                {{ $vacancy->type_vacancy }}
+                @if($vacancy->type_vacancy == 1) {
+                <td>CLT</td>
+                } 
+                @endif
+                
+                @if($vacancy->type_vacancy == 2) {
+                    <td>Pessoa Jurídica</td>
+                }
+                @endif 
+                
+                @if($vacancy->type_vacancy == 3) {
+                    <td>Freelancer</td>
+                }
+                @endif 
 
             </div>
 
@@ -58,7 +71,15 @@
 
                 <strong>Status:</strong>
 
-                {{ $vacancy->status }}
+                @if($vacancy->status == 1) {
+                <td>Ativo</td>
+                }
+                @endif 
+
+                @if($vacancy->status == 2) {
+                    <td>Inativo</td>
+                }
+                @endif 
 
             </div>
 
