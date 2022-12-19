@@ -1,4 +1,4 @@
-@extends('products.layout')
+@extends('applications.layout')
 
  
 
@@ -10,13 +10,13 @@
 
             <div class="pull-left">
 
-                <h2>Laravel 9 CRUD Example from scratch - ItSolutionStuff.com</h2>
+                <h2></h2>
 
             </div>
 
             <div class="pull-right">
 
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('applications.create') }}"> Create New Application</a>
 
             </div>
 
@@ -52,27 +52,27 @@
 
         </tr>
 
-        @foreach ($products as $product)
+        @foreach ($applications as $application)
 
         <tr>
 
             <td>{{ ++$i }}</td>
 
-            <td>{{ $product->name }}</td>
+            <td>{{ $application->name }}</td>
 
-            <td>{{ $product->detail }}</td>
+            <td>{{ $application->detail }}</td>
 
             <td>
 
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                <form action="{{ route('applications.destroy',$application->id) }}" method="POST">
 
    
 
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('applications.show',$application->id) }}">Show</a>
 
     
 
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('applications.edit',$application->id) }}">Edit</a>
 
    
 
@@ -96,7 +96,7 @@
 
   
 
-    {!! $products->links() !!}
+    {!! $applications->links() !!}
 
       
 
