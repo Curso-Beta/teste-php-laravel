@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Install project commands
+## Installing project and your commands 
 
 - create database beta_cursos
 
@@ -24,3 +24,7 @@
 - http://localhost:8000/candidates
 
 - http://localhost:8000/vacancies
+
+## Tests
+
+- ./vendor/bin/phpunit
