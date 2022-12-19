@@ -38,7 +38,15 @@ class VacancyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'type_vacation' => 'required'
+        ]);
+
+        Vacancy::create($request->all());
+
+        return redirect()->route('vacancies.index')
+            ->with('succes', 'Vacancy created successfully');
     }
 
     /**
