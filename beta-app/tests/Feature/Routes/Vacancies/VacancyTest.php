@@ -13,9 +13,9 @@ class CourseTest extends TestCase
     use DatabaseTransactions;
 
      /**
-     * @group candidates
+     * @group vacancies
      */
-    public function testListCandidateWithSucess()
+    public function testListVacanciesWithSucess()
     {
         $vacancy = Vacancy::factory()->create();
 
