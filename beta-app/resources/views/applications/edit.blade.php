@@ -62,9 +62,9 @@
 
                 <div class="form-group">
 
-                    <strong>Name:</strong>
+                    <strong>User:</strong>
 
-                    <input type="text" name="name" value="{{ $application->name }}" class="form-control" placeholder="Name">
+                    <input type="text" name="name" value="{{ $application->user }}" class="form-control" placeholder="Name">
 
                 </div>
 
@@ -74,9 +74,9 @@
 
                 <div class="form-group">
 
-                    <strong>Detail:</strong>
+                    <strong>Vacancy:</strong>
 
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $application->detail }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $application->vacancy }}</textarea>
 
                 </div>
 

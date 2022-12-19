@@ -60,9 +60,9 @@
 
             <div class="form-group">
 
-                <strong>Name:</strong>
+                <strong>User:</strong>
 
-                <input type="text" name="name" class="form-control" placeholder="Name">
+                <input type="text" name="user" class="form-control" placeholder="Name">
 
             </div>
 
@@ -72,9 +72,9 @@
 
             <div class="form-group">
 
-                <strong>Detail:</strong>
+                <strong>Vacancies:</strong>
 
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
+                <textarea class="form-control" style="height:150px" name="vacancy" placeholder="Vacancy"></textarea>
 
             </div>
 

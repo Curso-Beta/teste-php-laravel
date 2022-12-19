@@ -32,9 +32,9 @@
 
             <div class="form-group">
 
-                <strong>Name:</strong>
+                <strong>User:</strong>
 
-                {{ $application->name }}
+                {{ $application->user }}
 
             </div>
 
@@ -44,9 +44,9 @@
 
             <div class="form-group">
 
-                <strong>Details:</strong>
+                <strong>Vacancy:</strong>
 
-                {{ $application->detail }}
+                {{ $application->vacancy }}
 
             </div>
 

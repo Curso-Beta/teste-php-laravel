@@ -44,9 +44,9 @@
 
             <th>No</th>
 
-            <th>Name</th>
+            <th>User</th>
 
-            <th>Details</th>
+            <th>Vacancy</th>
 
             <th width="280px">Action</th>
 
@@ -58,9 +58,9 @@
 
             <td>{{ ++$i }}</td>
 
-            <td>{{ $application->name }}</td>
+            <td>{{ $application->user }}</td>
 
-            <td>{{ $application->detail }}</td>
+            <td>{{ $application->vacancy }}</td>
 
             <td>
 
