@@ -38,7 +38,14 @@ class CandidateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        Candidate::create($request->all());
+
+        return redirect()->route('candidates.index')
+            ->with('succes', 'Candidate created successfully');
     }
 
     /**
