@@ -28,4 +28,23 @@ class CourseTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * @group candidates
+     */
+    public function testCreateCandidateWithSucess()
+    {
+        $candidate = Candidate::factory()->create();
+
+        $data = [
+            'name' => 'Ramon'
+        ];
+
+        $response =  $this->followingRedirects()
+            ->post(
+                route('candidates.store', $data),
+            );
+
+        $response->assertStatus(200);
+    }
 }
