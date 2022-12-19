@@ -18,3 +18,5 @@ use App\Http\Controllers\CandidateController;
 Route::resource('candidates', CandidateController::class);
 
 Route::resource('vacancies', VacancyController::class);
+
+Route::resource('applications', ApplicationController::class);
