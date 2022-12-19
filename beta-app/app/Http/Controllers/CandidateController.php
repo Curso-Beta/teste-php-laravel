@@ -45,7 +45,7 @@ class CandidateController extends Controller
         Candidate::create($request->all());
 
         return redirect()->route('candidates.index')
-            ->with('succes', 'Candidate created successfully');
+            ->with('success', 'Candidate created successfully');
     }
 
     /**
