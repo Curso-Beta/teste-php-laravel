@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('type_vacancie');
+            $table->integer('type_vacancy');
             $table->integer('status');
             $table->timestamps();
         });

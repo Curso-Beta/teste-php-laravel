@@ -40,7 +40,7 @@ class VacancyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'type_vacation' => 'required'
+            'type_vacancy' => 'required'
         ]);
 
         Vacancy::create($request->all());
@@ -80,7 +80,16 @@ class VacancyController extends Controller
      */
     public function update(Request $request, Vacancy $vacancy)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'type_vacancy' => 'required'
+
+        ]);
+
+        $vacancy->update($request->all());
+
+        return redirect()->route('vacancies.index')
+            ->with('success', 'Vacancy updated successfully');
     }
 
     /**
