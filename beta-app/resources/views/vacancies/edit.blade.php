@@ -74,9 +74,21 @@
 
                 <div class="form-group">
 
-                    <strong>Detail:</strong>
+                    <strong>Vacancy Type:</strong>
 
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $vacancy->detail }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Vacancy Type">{{ $vacancy->type_vacancy }}</textarea>
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Status:</strong>
+
+                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Status">{{ $vacancy->status }}</textarea>
 
                 </div>
 
