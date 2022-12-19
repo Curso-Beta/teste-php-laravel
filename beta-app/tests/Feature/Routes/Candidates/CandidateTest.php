@@ -4,8 +4,6 @@ namespace Tests\Feature\Routes\Candidates;
 
 use Tests\TestCase;
 use App\Models\Candidate;
-use Illuminate\Support\Str;
-use Illuminate\Http\Response;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CandidateTest extends TestCase

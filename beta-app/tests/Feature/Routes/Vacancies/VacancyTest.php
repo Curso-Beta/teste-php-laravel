@@ -1,14 +1,12 @@
 <?php
 
-namespace Tests\Feature\Routes\Candidates;
+namespace Tests\Feature\Routes\Vacancies;
 
 use Tests\TestCase;
 use App\Models\Vacancy;
-use Illuminate\Support\Str;
-use Illuminate\Http\Response;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class CourseTest extends TestCase
+class VacancyTest extends TestCase
 {
     use DatabaseTransactions;
 
