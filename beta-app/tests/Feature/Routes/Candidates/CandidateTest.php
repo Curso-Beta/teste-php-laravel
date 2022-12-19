@@ -63,4 +63,19 @@ class CandidateTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * @group candidates
+     */
+    public function testDestroyCandidateWithSucess()
+    {
+        $candidate = Candidate::factory()->create();
+
+        $response = $this->followingRedirects()
+            ->delete(
+                route('candidates.destroy', $candidate),
+            );
+
+        $response->assertStatus(200);
+    }
 }
