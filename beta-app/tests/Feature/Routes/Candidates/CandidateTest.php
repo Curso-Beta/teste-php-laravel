@@ -43,4 +43,24 @@ class CandidateTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * @group candidates
+     */
+    public function testUpdateCandidateWithSucess()
+    {
+        $candidate = Candidate::factory()->create();
+
+        $data = [
+            'name' => 'Ramon',
+            'candidate' => $candidate
+        ];
+
+        $response = $this->followingRedirects()
+            ->patch(
+                route('candidates.update', $data, $candidate),
+            );
+
+        $response->assertStatus(200);
+    }
 }
