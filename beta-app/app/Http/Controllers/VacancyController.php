@@ -40,7 +40,8 @@ class VacancyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'type_vacancy' => 'required'
+            'type_vacancy' => 'required',
+            'status' => 'required'
         ]);
 
         Vacancy::create($request->all());

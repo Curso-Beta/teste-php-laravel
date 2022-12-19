@@ -62,9 +62,30 @@
 
             <td>{{ $vacancy->name }}</td>
 
-            <td>{{ $vacancy->type_vacancy }}</td>
+            @if($vacancy->type_vacancy == 1) {
+            <td>CLT</td>
+            } 
+            @endif
+            
+            @if($vacancy->type_vacancy == 2) {
+                <td>Pessoa Jurídica</td>
+            }
+            @endif 
+            
+            @if($vacancy->type_vacancy == 3) {
+                <td>Freelancer</td>
+            }
+            @endif 
 
-            <td>{{ $vacancy->status }}</td>
+            @if($vacancy->status == 1) {
+                <td>Ativo</td>
+            }
+            @endif 
+
+            @if($vacancy->status == 2) {
+                <td>Inativo</td>
+            }
+            @endif 
 
             <td>
 
