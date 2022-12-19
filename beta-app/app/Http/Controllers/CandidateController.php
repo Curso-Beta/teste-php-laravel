@@ -79,7 +79,14 @@ class CandidateController extends Controller
      */
     public function update(Request $request, Candidate $candidate)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $candidate->update($request->all());
+
+        return redirect()->route('candidates.index')
+            ->with('succes', 'Candidate updated successfully');
     }
 
     /**
