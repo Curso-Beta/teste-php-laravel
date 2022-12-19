@@ -14,7 +14,7 @@ class VacancyController extends Controller
      */
     public function index()
     {
-        $vacancy = Vacancy::latest()->paginate(20);
+        $vacancies = Vacancy::latest()->paginate(20);
 
         return view('vacancies.index', compact('vacancies'))
             ->with('i', (request()->input('page', 1) - 1 ) * 20);

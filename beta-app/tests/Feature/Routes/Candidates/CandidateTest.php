@@ -6,11 +6,9 @@ use Tests\TestCase;
 use App\Models\Candidate;
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
-use Scaffold\Course\Models\Course;
-use Scaffold\Auth\Shared\Enums\UserTypeEnum;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class CourseTest extends TestCase
+class CandidateTest extends TestCase
 {
     use DatabaseTransactions;
 
