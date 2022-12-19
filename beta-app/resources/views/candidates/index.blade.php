@@ -10,7 +10,7 @@
 
             <div class="pull-left">
 
-                <h2>BETA CURSOS - RAMON MENDES</h2>
+                <h2>BETA CURSOS INDEX CANDIDATES - RAMON MENDES DEVELOPER</h2>
 
             </div>
 
