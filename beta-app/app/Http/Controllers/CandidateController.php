@@ -67,7 +67,7 @@ class CandidateController extends Controller
      */
     public function edit(Candidate $candidate)
     {
-        //
+        return view('candidates.edit', compact('candidate'));
     }
 
     /**
