@@ -27,7 +27,7 @@ class VacancyController extends Controller
      */
     public function create()
     {
-        return view('vacancies.creste');
+        return view('vacancies.create');
     }
 
     /**

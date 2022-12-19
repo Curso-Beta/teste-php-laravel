@@ -67,16 +67,32 @@
             </div>
 
         </div>
+        <p></p>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
             <div class="form-group">
 
-                <strong>Detail:</strong>
+                <strong>Vacancy Type:</strong>
 
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-
+                <select name="type_vacancy">
+                <option value="1"> CLT </option>
+                <option value="2"> Pessoa Jurídica </option>
+                <option value="3"> Freelancer </option>
+                </select>
             </div>
+
+        </div>
+
+        <p></p>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+
+        <strong>Status:</strong>
+        <select name="status">
+        <option value="1"> Ativa </option>
+        <option value="2"> Inativa </option>
+        </select>
 
         </div>
 

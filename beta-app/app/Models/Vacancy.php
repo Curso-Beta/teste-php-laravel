@@ -10,6 +10,6 @@ class Vacancy extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'type_vacancy'
+        'name', 'type_vacancy', 'status'
     ];
 }
