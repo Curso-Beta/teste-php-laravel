@@ -68,7 +68,7 @@ class VacancyController extends Controller
      */
     public function edit(Vacancy $vacancy)
     {
-        //
+        return view('vacancies.edit', compact('vacancy'));
     }
 
     /**
