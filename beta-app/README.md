@@ -18,3 +18,9 @@
 - php artisan config:cache
 
 - php artisan serve
+
+## Routes 
+
+- http://localhost:8000/candidates
+
+- http://localhost:8000/vacancies
