@@ -24,4 +24,19 @@ class ApplicationTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+     /**
+     * @group application
+     */
+    public function testDestroyApplicationWithSuccess()
+    {
+        $application = Application::factory()->create();
+
+        $response = $this
+            ->get(
+                route('applications.destroy', $application),
+            );
+
+        $response->assertStatus(200);
+    }
 }
