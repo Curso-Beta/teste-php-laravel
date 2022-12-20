@@ -13,7 +13,7 @@ class VacancyTest extends TestCase
      /**
      * @group vacancies
      */
-    public function testListVacanciesWithSucess()
+    public function testListVacanciesWithSuccess()
     {
         $vacancy = Vacancy::factory()->create();
 
