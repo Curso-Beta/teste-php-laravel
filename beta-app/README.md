@@ -30,3 +30,7 @@
 ## Tests
 
 - ./vendor/bin/phpunit
+
+## Seeds
+
+- php artisan db:seed
