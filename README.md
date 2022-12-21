@@ -46,12 +46,12 @@ php artisan migrate
 ```
 
 # Acesso a api
-- Acesse a url, conforme a porta escolhida no arquivo docker-compose.yml, no caso default a prota 8188
+- Acesse a url, conforme a porta escolhida no arquivo docker-compose.yml, no caso default a prota 8190
 ```
-http//localhost:8188/api/
+http//localhost:8190/api/
 ```
 
 - Assim você já poderá acessar a documentação da api, para saber mais sobre a utilização do projeto.
 ```
-http//localhost:8188/api/documentation
+http//localhost:8190/api/documentation
 
